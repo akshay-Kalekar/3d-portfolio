@@ -1,46 +1,84 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 
 type ProjectCardProps = {
+  setActiveCard: (index: number) => void;
+  setHoveredCard: (index: number | null) => void; // Track hovered card
+  hoveredCard: number | null; // Currently hovered card
+  selectedProject: number;
   title: string;
   description: string;
   image: string;
   repoLink: string;
   hostedLink: string;
+  visibility: boolean;
+  index: number;
+  activeCard: number;
 };
-const ProjectCard = ({title, description, image, repoLink,hostedLink}:ProjectCardProps) => {
-  return (
-    <div className="bg-gradient-to-r from-gray-800/30 via-gray-900 to-black/30 rounded-tr-md rounded-bl-md border-4    border-orange-500 p-6 text-center shadow-lg  gap-4 transform scale-75 hover:scale-[.85] transition-transform duration-300 ">
-    <div className="relative">
-      <Image 
-        src={image} 
-        alt={title} 
-        height={200} 
-        width={200} 
-        className="border-4 border-yellow-400 rounded-md shadow-md transform hover:scale-110 transition-transform duration-300 mx-auto"
-      />
-    </div>
-    <h2 className="text-xl font-bold text-white mt-4">{title}</h2>
-    <p className="text-xs text-gray-300 text-left my-2">{description}</p>
-    <div className="flex justify-between text-sm mt-4">
-      <a 
-        href={repoLink} 
-        target='_blank'
-        className="px-4 py-2 bg-slate-400 text-white rounded-md shadow-lg hover:bg-black hover:shadow-white transition-all duration-300"
-        >
-        Github
-      </a>
-      <a 
-        href={hostedLink} 
-        target='_blank'
-        className="px-4 py-2 bg-slate-400 text-white rounded-md shadow-lg hover:bg-black hover:shadow-white transition-all duration-300"
-      >
-        Site
-      </a>
-    </div>
-  </div>
-  
-  )
-}
 
-export default ProjectCard
+const ProjectCard = ({
+  setActiveCard,
+  setHoveredCard,
+  hoveredCard,
+  visibility,
+  index,
+  title,
+  description,
+  image,
+  repoLink,
+  hostedLink,
+  activeCard,
+}: ProjectCardProps) => {
+  const [isVisible, setIsVisible] = useState(visibility);
+
+  useEffect(() => {
+    if (visibility) {
+      setIsVisible(true); // Show the card when visibility is true
+    }
+  }, [visibility]);
+
+  const handleOnClick = () => {
+    setActiveCard(index);
+  };
+
+  const handleMouseEnter = () => {
+    setHoveredCard(index); // Set the hovered card index
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredCard(null); // Clear the hovered card
+  };
+
+  return (
+    isVisible && (
+      <div
+        className={`absolute bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-tr-md rounded-bl-md border-4 p-6 text-center shadow-lg gap-4 duration-300 w-[40vw] h-[40vh] scale-75 top-[28rem] hover:top-[27rem]   transition-all rounded-sm
+          ${activeCard === index ? 'border-red-300 ' : 'border-orange-500'}
+          ${hoveredCard !== null && hoveredCard < index ? 'opacity-5' : 'opacity-100'}
+       
+        `}
+        style={{
+          left: `${2 + index * 2}rem`,
+          transform: `scale(0.55)`,
+        }}
+        onClick={handleOnClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative overflow-hidden">
+          <h2 className="text-2xl font-bold text-white mt-4">{title}</h2>
+          <Image
+            src={image}
+            alt={title}
+            height={100}
+            width={200}
+            className="border-4 border-yellow-400 rounded-md shadow-md transform transition-transform duration-300 mx-auto overflow-hidden"
+          />
+          <p className="line-clamp-4 text-left pt-2">{description}</p>
+        </div>
+      </div>
+    )
+  );
+};
+
+export default ProjectCard;

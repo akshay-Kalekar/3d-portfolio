@@ -41,3 +41,40 @@ body {
   .parallax__layer--back {
     transform: translateZ(-1px);
   }
+  @keyframes rotate-on-load {
+    from {
+      transform: rotateY(0deg) scale(.65) ;
+    }
+    to {
+      transform: rotateY(90deg) scale(.62);
+    }
+  }
+  @keyframes rotate-on-load-reverse {
+    from {
+      transform: rotateY(90deg) scale(.62);
+    }
+    to {
+      transform: rotateY(0deg) scale(.65) ;
+    }
+  }
+  @keyframes swipe-right {
+    from {
+      transform: rotateY(0deg) scale(.65) ;
+    }
+    to {
+      transform: rotateY(360deg) scale(.75);
+    }
+  }
+  
+  .animate-swipe-right {
+    animation: swipe-right 3s ease-in-out;
+  }
+  
+  .animate-rotate-on-load-180 {
+   
+    animation: rotate-on-load 1s linear;
+  }
+  .animate-rotate-on-load-180-reverse {
+    
+    animation: rotate-on-load-reverse 1s linear ;
+  }

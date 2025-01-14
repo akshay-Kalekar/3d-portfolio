@@ -5,7 +5,7 @@ import { Suspense } from "react";
 const Character = (props) => {
   const { nodes, materials } = useGLTF("/67575a1b7e71f93ae71ca206.glb");
   return (
-    <group {...props} dispose={null} scale={2} position={[0, -4.5, 1]}>
+    <group {...props} dispose={null} scale={2} position={[0, -4.25, 1]}>
       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="EyeLeft"

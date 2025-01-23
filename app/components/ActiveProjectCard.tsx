@@ -30,29 +30,29 @@ const ActiveProjectCard = ({
       setCurrentDescription(description);
       setCurrentImage(image);
       setIsExiting(false); // Trigger enter animation
-    }, 1000); // Match this to the animation duration
+    }, 500); // Match this to the animation duration
 
     return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, [title, description, image]);
 
   return (
     <div
-      className={`absolute bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-tr-md rounded-bl-md border-4 border-orange-500 p-6 text-center shadow-lg gap-4 duration-500 w-[80vw] h-[80vh] scale-[.65] transition-all rounded-sm -top-[60px] left-14 ${
+      className={` bg-gradient-to-b border-2 bg-black mt-6 p-2 text-center  gap-4 duration-500 w-[50vw] h-[45vh] scale-[1] transition-all  ${
         isExiting ? '  animate-rotate-on-load-180' : 'animate-rotate-on-load-180-reverse'
       }`}
     >
 
       <div className="relative">
-        <h2 className="text-2xl font-bold text-white mt-4">{currentTitle}</h2>
+        <h2 className="text-2xl font-bold text-white ">{currentTitle}</h2>
         <Image
           src={currentImage}
           alt={currentTitle}
           height={400}
           width={400}
-          className="border-4 border-yellow-400 rounded-md shadow-md transform transition-transform duration-500 mx-auto"
+          className=" p-4 rounded-md shadow-md transform transition-transform duration-500 mx-auto"
         />
       </div>
-      <p className="text-gray-300 text-left my-2 text-lg">{currentDescription}</p>
+      <p className="text-gray-300 text-left my-2 text-xs">{currentDescription}</p>
       <div className="flex justify-between text-sm mt-4">
         <a
           href={repoLink}

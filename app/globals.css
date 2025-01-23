@@ -43,18 +43,26 @@ body {
   }
   @keyframes rotate-on-load {
     from {
-      transform: rotateY(0deg) scale(.65) ;
+      transform: rotateY(0deg)  ;
     }
     to {
-      transform: rotateY(90deg) scale(.62);
+      transform: rotateY(90deg) ;
+    }
+  }
+  @keyframes rotate-on-load-360 {
+    from {
+      transform: rotateY(0deg) ;
+    }
+    to {
+      transform: rotateY(360deg) ;
     }
   }
   @keyframes rotate-on-load-reverse {
     from {
-      transform: rotateY(90deg) scale(.62);
+      transform: rotateY(90deg);
     }
     to {
-      transform: rotateY(0deg) scale(.65) ;
+      transform: rotateY(0deg)  ;
     }
   }
   @keyframes swipe-right {
@@ -72,9 +80,27 @@ body {
   
   .animate-rotate-on-load-180 {
    
-    animation: rotate-on-load 1s linear;
+    animation: rotate-on-load .5s linear;
+  }
+  
+  .animate-rotate-on-load-360 {
+   
+    animation: rotate-on-load-360 1s linear;
   }
   .animate-rotate-on-load-180-reverse {
     
-    animation: rotate-on-load-reverse 1s linear ;
+    animation: rotate-on-load-reverse .5s linear ;
   }
+  @keyframes repeal {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+  
+  .repeal-effect {
+    animation: repeal 2s linear infinite;
+  }
+  

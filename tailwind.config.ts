@@ -7,13 +7,16 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens:{
+      'xs' : '300px'
+    },
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
       backgroundImage:{
-          'hero-background': "url('/background3.jpeg')",
+          'hero-background': "url('/bg5.jpeg')",
       }
     },
   },

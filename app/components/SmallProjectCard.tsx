@@ -48,30 +48,29 @@ const ProjectCard = ({
   return (
     isVisible && (
       <a
-      className={`inline-block bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-tr-md rounded-bl-md border-4 text-center shadow-lg gap-4 duration-300 h-fit w-[300px] transition-all rounded-sm px-4 py-2
-        ${activeCard === index ? 'border-white' : 'border-gray-900'}
-      `}
-      style={{
-        opacity: hoveredCard !== null && hoveredCard < index ? 0.05 : 1,
-      }}
-      onClick={handleOnClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="relative overflow-hidden">
-        <h2 className="text-base font-bold text-white">{title}</h2>
-        <Image
-          src={image}
-          alt={title}
-          height={120}
-          width={120}
-          className="p-2 rounded-md shadow-md mx-auto object-cover"
-        />
-        <p className="whitespace-pre-wrap text-xs pt-2 line-clamp-4   overflow-hidden">
-          {description}
-        </p>
-      </div>
-    </a>
+        className={`inline-block bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-tr-md rounded-bl-md border-4 p-6 text-center shadow-lg gap-4 duration-300 w-[40vw] h-[40vh] scale-75    transition-all rounded-sm
+          ${activeCard === index ? 'border-white ' : 'border-gray-900'}
+        `}
+        style={{
+          transform: `scale(0.55)`,
+          opacity: hoveredCard !== null && hoveredCard < index ? 0.05 : 1
+        }}
+        onClick={handleOnClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative overflow-hidden">
+          <h2 className="text-2xl font-bold text-white mt-4">{title}</h2>
+          <Image
+            src={image}
+            alt={title}
+            height={100}
+            width={200}
+            className="border-4 border-yellow-400 rounded-md shadow-md transform transition-transform duration-300 mx-auto overflow-hidden"
+          />
+          <p className="line-clamp-4 text-left pt-2">{description}</p>
+        </div>
+      </a>
     )
   );
 };

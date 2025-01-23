@@ -6,7 +6,7 @@ const Socials = () => {
     <div className="flex flex-col justify-center items-center w-2/12"  onMouseEnter={() => setShowSocials(true)}
             onMouseLeave={() => setShowSocials(false)}>
           <div
-            className="text-black text-center font-bold  border-black border-t-8 -skew-y-12 relative cursor-pointer"
+            className="text-black text-center font-bold  border-black border-t-8  relative cursor-pointer"
            
           >
             {/* Main text */}

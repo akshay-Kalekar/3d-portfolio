@@ -1,43 +1,45 @@
-[{
-    "title": "Glorhea",
-    "description": " is a 2D platformer game where you play as a warrior who is trying to save his people from the evil forces.",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-},
-{
-    "title": "Glorhea",
-    "description": "a 2D platformer game where you play as a warrior who is trying to save his people from the evil forces.",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-},
-{
-    "title": "Glorhea",
-    "description": " game where you play as a warrior who is trying to save his people from the evil forces.",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-},
-{
-    "title": "Glorhea",
-    "description": "D platformer game where you play as a warrior who is trying to save his people from the evil forces.",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-},
-{
-    "title": "Glorhea",
-    "description": " is trying to save his people from the evil forces.Glorhea is a 2D platformer game where you play as a warrior who",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-},
-{
-    "title": "Glorhea",
-    "description": "Glorhea is a 2D platformer game where you play as a warrior who is trying to save his people from the evil forces.",
-    "image" : "/project/glorhea.png",
-    "repoLink" : "https://github.com/akshay-Kalekar/GloRhea",
-    "hostedLink":"https://glorhea-womenhelp.netlify.app/"
-}
+[
+    {
+        "title": "MiniChess 5x5",
+        "description": "A 5x5 chess variant with unique piece movements, encouraging dynamic gameplay.",
+        "image": "/project/minichess.png",
+        "repoLink": "https://github.com/akshay-Kalekar/miniChess-5x5-",
+        "hostedLink": "https://minichess-aeead.web.app/"
+    },
+  
+    {
+        "title": "Enliven",
+        "description": "A platform providing resources and support for domestic workers facing abuse and partiality.",
+        "image": "/project/enliven.png",
+        "repoLink": "https://github.com/akshay-Kalekar/Enliven",
+        "hostedLink": "https://enliven-team.netlify.app/"
+    },
+    {
+        "title": "Track Status",
+        "description": "A Streamlit app for analyzing student records and placement statistics (VIT specific).",
+        "image": "/project/trackstatus.png",
+        "repoLink": "https://github.com/akshay-Kalekar/Track_Status",
+        "hostedLink": "https://trackstatus.streamlit.app/"
+    },
+    {
+        "title": "Glorhea",
+        "description": "A 2D platformer game combining action and strategy for an engaging experience.",
+        "image": "/project/glorhea.png",
+        "repoLink": "https://github.com/akshay-Kalekar/GloRhea",
+        "hostedLink": "https://glorhea-womenhelp.netlify.app/"
+    },
+    {
+        "title": "Rust Quiz",
+        "description": "A Rust quiz app to test and improve programming knowledge with fun questions.",
+        "image": "/project/rustquiz.png",
+        "repoLink": "https://github.com/akshay-Kalekar/Rust-Quiz",
+        "hostedLink": "https://rust-quiz.vercel.app/"
+    },
+    {
+        "title": "Binary Tree Representation",
+        "description": "An app to create and visualize binary trees easily for problem-solving specially gfg.",
+        "image": "/project/binarytree.png",
+        "repoLink": "https://github.com/akshay-Kalekar/Binary-Tree-Representation",
+        "hostedLink": "https://binarytree.streamlit.app/"
+    }
 ]

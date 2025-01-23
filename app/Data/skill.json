@@ -1,0 +1,58 @@
+[
+    {
+        "Name": "Express",
+        "ImageUrl": "Skill/Express.png"
+    },
+    {
+        "Name": "Figma",
+        "ImageUrl": "Skill/Figma.png"
+    },
+    {
+        "Name": "Firebase",
+        "ImageUrl": "Skill/Firebase.png"
+    },
+    {
+        "Name": "GitHub",
+        "ImageUrl": "Skill/Github.png"
+    },
+    {
+        "Name": "JavaScript",
+        "ImageUrl": "Skill/Javascript.png"
+    },
+    {
+        "Name": "Mongo",
+        "ImageUrl": "Skill/Mongo.png"
+    },
+    {
+        "Name": "Next.js",
+        "ImageUrl": "Skill/Next.png"
+    },
+    {
+        "Name": "Node.js",
+        "ImageUrl": "Skill/NodeJS.png"
+    },
+    {
+        "Name": "Postman",
+        "ImageUrl": "Skill/Postman.png"
+    },
+    {
+        "Name": "React",
+        "ImageUrl": "Skill/React.png"
+    },
+    {
+        "Name": "Socket",
+        "ImageUrl": "Skill/Socket.png"
+    },
+    {
+        "Name": "TailwindCSS",
+        "ImageUrl": "Skill/TailwindCSS.png"
+    },
+    {
+        "Name": "TypeScript",
+        "ImageUrl": "Skill/Typescript.png"
+    },
+    {
+        "Name": "VSCode",
+        "ImageUrl": "Skill/VSCode.png"
+    }
+]

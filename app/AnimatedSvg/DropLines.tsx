@@ -18,22 +18,22 @@ export const DropLines = () => {
   }, []);
 
   return (
-    <div className='w-full h-screen'>
+    <div className='w-full h-screen relative top-0'>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 2000 2000" // Set viewBox to handle large dimensions
+        viewBox="0 1000 4000 2000" // Set viewBox to handle large dimensions
         preserveAspectRatio="xMidYMid"
         className="w-full h-full"
         style={{
           shapeRendering: 'auto',
           display: 'block',
-          background: 'black',
+          background: 'white',
         }}
       >
         <defs>
           <filter
-            height="97.80"
-            width="12"
+            height="197.80"
+            width="120"
             y="-6"
             x="-6"
             filterUnits="userSpaceOnUse"
@@ -58,12 +58,12 @@ export const DropLines = () => {
           <g key={i}>
             <path
               strokeWidth="0.4"
-              stroke="#3a4cda"
-              d={`M${x} 0L${x} 2000`} // Extend lines infinitely long
+              stroke="#000000"
+              d={`M${x} 1000L${x} 2000`} // Extend lines infinitely long
             />
             <path
               filter="url(#f-mzf97b0al6f)"
-              fill="#ffffff"
+              fill="#000000"
               d="M0 0L-1 85.80 A1 1 0 0 0 1 85.80 Z"
               transform={`matrix(1,0,0,1,${x},${positions[i]})`}
             />

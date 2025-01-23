@@ -3,10 +3,10 @@ import { DropLines } from '../AnimatedSvg/DropLines';
 import data2 from '../Data/project.json';
 import ProjectCard from '../components/ProjectCard';
 import ActiveProjectCard from '../components/ActiveProjectCard';
+import Background from 'three/src/renderers/common/Background.js';
 
 const Project = () => {
-  const [currTop, setCurrTop] = useState(data2.length - 1);
-  const [visibility, setVisibility] = useState(new Map());
+ const [visibility, setVisibility] = useState(new Map());
   const [data ,setData] = useState(data2)
   const [activeCard ,setActiveCard] = useState(0)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -18,37 +18,20 @@ const Project = () => {
     setVisibility(initialMap);
   }, []);
 
-  const toggleVisibility = (index, isVisible) => {
-    setVisibility((prev) => {
-      const newMap = new Map(prev);
-      newMap.set(index, isVisible);
-      return newMap;
-    });
-  };
 
-  const handlePrev = () => {
-    if (currTop > 0) {
-      toggleVisibility(currTop, false);
-      setCurrTop((prev) => prev - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currTop < data.length - 1) {
-      toggleVisibility(currTop + 1, true);
-      setCurrTop((prev) => prev + 1);
-    }
-  };
-
+ 
   return (
-    <div id="Project" className="w-screen relative z-10 transform translate-z-[0px] h-fit">
-      <DropLines />
-      <div className="absolute top-0 w-screen h-screen">
-        <div className="w-screen h-screen">
-          <div className="text-center pt-6 text-4xl font-bold text-white border-t-[16px] border-black bg-gradient-to-b from-orange-800/40">
+    <div id="Project" className="w-screen  z-10 transform translate-z-[0px] h-fit bg-black py-10">
+     
+      <div className=" top-0 w-screen h-screen">
+      <div
+  className="w-screen h-screen"
+  
+>
+          <div className="text-center pt-6 text-4xl font-bold   text-white    bg-black">
             Work Experience
           </div>
-          <div className="relative md:grid md:grid-cols-2 justify-items-center text-white gap-4 h-fit mx-auto">
+          <div className=" flex flex-col gap-16 justify-items-center items-center text-white  h-fit mx-auto ">
           <ActiveProjectCard
                   selectedProject={1}
                   visibility={true}
@@ -60,7 +43,10 @@ const Project = () => {
                   repoLink={data[activeCard].repoLink}
                   hostedLink={data[activeCard].hostedLink}
                 />
+                <div className='w-full flex overflow-auto whitespace-nowrap gap-4 px-4'>
+
             {data.map(({ title, description, image, repoLink, hostedLink }, index) => {
+              
               return(
                 <ProjectCard
                 setHoveredCard={setHoveredCard} // Pass the state updater for hovered card
@@ -77,9 +63,11 @@ const Project = () => {
                   repoLink={repoLink}
                   hostedLink={hostedLink}
                   activeCard={activeCard}
-                />
-              ) 
-            })}
+                  />
+                ) 
+              })}
+              
+              </div>
           </div>
         </div>
       </div>

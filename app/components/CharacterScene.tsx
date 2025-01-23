@@ -1,11 +1,28 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import { Suspense } from "react";
-
+import { useMediaQuery } from "react-responsive";
 const Character = (props) => {
   const { nodes, materials } = useGLTF("/67575a1b7e71f93ae71ca206.glb");
+  const isSmallMobile = useMediaQuery({ maxWidth: 400 }); // `md` breakpoint
+  const isMobile = useMediaQuery({ maxWidth: 767 }); // `md` breakpoint
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); // Between `md` and `lg`
+
+  // Adjust position based on device size
+  const position = isSmallMobile
+    ? [0,-4,1] :isMobile ? [0,-4, 1] // Mobile
+    : isTablet
+    ? [0, -5, 1] // Tablet
+    : [0, -5.7, 1]; // Desktop
+    const scale = isSmallMobile
+    ? 2 :isMobile ? 1.95 // Mobile
+    : isTablet
+    ? 2 // Tablet
+    : 2.75; // Desktop
+
+
   return (
-    <group {...props} dispose={null} scale={2} position={[0, -4.25, 1]}>
+    <group {...props} dispose={null} scale={scale} position={position}>
       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="EyeLeft"
@@ -70,7 +87,7 @@ const Character = (props) => {
 
 const CharacterScene = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 35 }} className="w-4/5">
+    <Canvas camera={{ position: [0, -1, 10], fov: 35 }} className="w-4/5">
       {/* Lighting */}
       <ambientLight intensity={2} />
       <directionalLight position={[0, 0, 10]} intensity={1} />
@@ -79,7 +96,7 @@ const CharacterScene = () => {
         <Character />
       </Suspense>
       {/* Controls */}
-      <OrbitControls target={[0, -3, 1]} minPolarAngle={Math.PI/2} maxPolarAngle={Math.PI/2}  enableZoom={false} enablePan={false} />
+      <OrbitControls target={[-0, -3, 1]} minPolarAngle={Math.PI/2} maxPolarAngle={Math.PI/2}  enableZoom={false} enablePan={false} />
     </Canvas>
   );
 };

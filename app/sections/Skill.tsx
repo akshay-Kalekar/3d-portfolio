@@ -24,14 +24,14 @@ const Skill = () => {
   return (
     <>
       <div className="h-screen w-screen bg-white text-black flex justify-center z-10  ">
-        <div className="absolute h-screen w-screen">
+        <div className=" h-screen w-screen">
           <div className="flex flex-col items-center justify-center p-4 h-screen w-screen">
             {/* First row: 4 images */}
             <div className="flex gap-8 justify-center items-center">
               {skill.slice(0, 4).map(({ ImageUrl }, i) => (
                 <div
                   key={i}
-                  className="w-16 h-16 overflow-hidden relative"
+                  className="w-16 h-16  overflow-hidden relative"
                   onMouseEnter={() => handleMouseEnter(i)}
                 >
                   {ImageUrl && (
@@ -53,7 +53,7 @@ const Skill = () => {
               {skill.slice(4, 7).map(({ ImageUrl }, i) => (
                 <div
                   key={i}
-                  className="w-16 h-16 overflow-hidden relative"
+                  className="w-16 h-16  overflow-hidden relative"
                   onMouseEnter={() => handleMouseEnter(i + 4)}
                 >
                   {ImageUrl && (
@@ -80,7 +80,7 @@ const Skill = () => {
               {skill.slice(7, 10).map(({ ImageUrl }, i) => (
                 <div
                   key={i}
-                  className="w-16 h-16 overflow-hidden relative"
+                  className="w-16 h-16  overflow-hidden relative"
                   onMouseEnter={() => handleMouseEnter(i + 7)}
                 >
                   {ImageUrl && (
@@ -102,7 +102,7 @@ const Skill = () => {
               {skill.slice(10, 14).map(({ ImageUrl }, i) => (
                 <div
                   key={i}
-                  className="w-16 h-16 overflow-hidden relative"
+                  className="w-16 h-16  overflow-hidden relative"
                   onMouseEnter={() => handleMouseEnter(i + 10)}
                 >
                   {ImageUrl && (

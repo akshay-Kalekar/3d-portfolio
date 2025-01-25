@@ -48,28 +48,25 @@ const ProjectCard = ({
   return (
     isVisible && (
       <a
-      className={`inline-block bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-tr-md rounded-bl-md border-4 text-center shadow-lg gap-4 duration-300 h-fit w-[300px] transition-all rounded-sm px-4 py-2
-        ${activeCard === index ? 'border-white' : 'border-gray-900'}
+      className={`inline-block justify-center  rounded-md  border-2 text-center shadow-lg gap-4 duration-300 h-fit w-24 h-30 transition-all   py-1
+        ${activeCard === index ? 'border-white bg-white text-black' : 'border-gray-900 to-gray-700/90 bg-gradient-to-r from-gray-800 via-gray-900 text-white'}
       `}
       style={{
-        opacity: hoveredCard !== null && hoveredCard < index ? 0.05 : 1,
+        opacity: hoveredCard !== null && hoveredCard != index ? 0.8 : 1,
       }}
       onClick={handleOnClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative overflow-hidden">
-        <h2 className="text-base font-bold text-white">{title}</h2>
+      <div className=" overflow-hidden  flex justify-center flex-col items-center gap-2">
+        <h2 className="text-xs font-bold  align-middle text-wrap line-clamp-2 text-center w-28 md:w-full">{title}</h2>
         <Image
           src={image}
           alt={title}
-          height={120}
-          width={120}
-          className="p-2 rounded-md shadow-md mx-auto object-cover"
+          height={140}
+          width={140}
+          className=" rounded-sm   object-cover w-16 h-16 "
         />
-        <p className="whitespace-pre-wrap text-xs pt-2 line-clamp-4   overflow-hidden">
-          {description}
-        </p>
       </div>
     </a>
     )

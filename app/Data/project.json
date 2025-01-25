@@ -1,45 +1,51 @@
 [
     {
-        "title": "MiniChess 5x5",
-        "description": "A 5x5 chess variant with unique piece movements, encouraging dynamic gameplay.",
-        "image": "/project/minichess.png",
-        "repoLink": "https://github.com/akshay-Kalekar/miniChess-5x5-",
-        "hostedLink": "https://minichess-aeead.web.app/"
-    },
-  
-    {
-        "title": "Enliven",
-        "description": "A platform providing resources and support for domestic workers facing abuse and partiality.",
-        "image": "/project/enliven.png",
-        "repoLink": "https://github.com/akshay-Kalekar/Enliven",
-        "hostedLink": "https://enliven-team.netlify.app/"
+      "title": "MiniChess 5x5",
+      "smallDes": "A 5x5 chess variant with unique piece movements, encouraging dynamic gameplay.",
+      "largeDes": "A 5x5 chess variant where players use three distinct pieces with unique movements, reimagining chess tactics on a smaller board. This simplified setup offers strategic, fast-paced, and dynamic gameplay.",
+      "image": "/project/minichess.png",
+      "repoLink": "https://github.com/akshay-Kalekar/miniChess-5x5-",
+      "hostedLink": "https://minichess-aeead.web.app/"
     },
     {
-        "title": "Track Status",
-        "description": "A Streamlit app for analyzing student records and placement statistics (VIT specific).",
-        "image": "/project/trackstatus.png",
-        "repoLink": "https://github.com/akshay-Kalekar/Track_Status",
-        "hostedLink": "https://trackstatus.streamlit.app/"
+      "title": "Track Status",
+      "smallDes": "A Streamlit app for analyzing student records and placement statistics (VIT specific).",
+      "largeDes": "A web app built using Streamlit to analyze student records and placement data. It provides insights like company wise placement counts and package categorization.",
+      "image": "/project/trackstatus.png",
+      "repoLink": "https://github.com/akshay-Kalekar/Track_Status",
+      "hostedLink": "https://trackstatus.streamlit.app/"
     },
     {
-        "title": "Glorhea",
-        "description": "A 2D platformer game combining action and strategy for an engaging experience.",
-        "image": "/project/glorhea.png",
-        "repoLink": "https://github.com/akshay-Kalekar/GloRhea",
-        "hostedLink": "https://glorhea-womenhelp.netlify.app/"
+      "title": "Enliven",
+      "smallDes": "A platform providing resources and support for domestic workers facing abuse and partiality.",
+      "largeDes": "Enliven is a platform offering support for domestic workers facing abuse. It connects users with NGOs for legal help, provides information on laws, and offers a safe space to share experiences.",
+      "image": "/project/enliven.png",
+      "repoLink": "https://github.com/akshay-Kalekar/Enliven",
+      "hostedLink": "https://enliven-team.netlify.app/"
     },
     {
-        "title": "Rust Quiz",
-        "description": "A Rust quiz app to test and improve programming knowledge with fun questions.",
-        "image": "/project/rustquiz.png",
-        "repoLink": "https://github.com/akshay-Kalekar/Rust-Quiz",
-        "hostedLink": "https://rust-quiz.vercel.app/"
+      "title": "Glorhea",
+      "smallDes": "A 2D platformer game combining action and strategy for an engaging experience.",
+      "largeDes": "Glorhea is a 2D platformer game where players take on the role of a warrior fighting to save his people. Combining action and strategy, it offers a thrilling and immersive gaming experience for users.",
+      "image": "/project/glorhea.png",
+      "repoLink": "https://github.com/akshay-Kalekar/GloRhea",
+      "hostedLink": "https://glorhea-womenhelp.netlify.app/"
     },
     {
-        "title": "Binary Tree Representation",
-        "description": "An app to create and visualize binary trees easily for problem-solving specially gfg.",
-        "image": "/project/binarytree.png",
-        "repoLink": "https://github.com/akshay-Kalekar/Binary-Tree-Representation",
-        "hostedLink": "https://binarytree.streamlit.app/"
+      "title": "Rust Quiz",
+      "smallDes": "A Rust quiz app to test and improve programming knowledge with fun questions.",
+      "largeDes": "The Rust Quiz app is designed to test and improve Rust programming knowledge. It features interactive questions, offering a fun and efficient way to enhance your skills through engaging quizzes.",
+      "image": "/project/rustquiz.png",
+      "repoLink": "https://github.com/akshay-Kalekar/Rust-Quiz",
+      "hostedLink": "https://rust-quiz.vercel.app/"
+    },
+    {
+      "title": "Binary Tree ",
+      "smallDes": "An app to create and visualize binary trees easily for problem-solving specially GFG.",
+      "largeDes": "An intuitive app that simplifies creating and visualizing binary trees. Designed for problem-solving, it assists users in understanding and solving binary tree-related questions with ease and efficiency.",
+      "image": "/project/binarytree.png",
+      "repoLink": "https://github.com/akshay-Kalekar/Binary-Tree-Representation",
+      "hostedLink": "https://binarytree.streamlit.app/"
     }
-]
+  ]
+  

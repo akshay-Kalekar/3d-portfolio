@@ -67,7 +67,7 @@ const Hero2 = () => {
       </div>
 
       {/* Middle Panel */}
-      <div className="w-1/3 flex items-center justify-center bg-white">
+      <div className="w-1/3 flex items-center justify-center bg-black">
         <CharacterScene />
       </div>
 

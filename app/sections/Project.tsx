@@ -4,6 +4,7 @@ import data2 from '../Data/project.json';
 import ProjectCard from '../components/ProjectCard';
 import ActiveProjectCard from '../components/ActiveProjectCard';
 import Background from 'three/src/renderers/common/Background.js';
+import { useMediaQuery } from 'react-responsive';
 
 const Project = () => {
  const [visibility, setVisibility] = useState(new Map());
@@ -19,33 +20,33 @@ const Project = () => {
   }, []);
 
 
- 
+  const isTablet = useMediaQuery({ minWidth: 768}); // Between `md` and `lg`
   return (
-    <div id="Project" className="w-screen  z-10 transform translate-z-[0px] h-fit bg-black py-10">
+    <div id="Project" className="w-screen   z-10 transform translate-z-[0px] h-fit bg-black p-4">
      
-      <div className=" top-0 w-screen h-screen">
+   
       <div
-  className="w-screen h-screen"
+  className="w-screen h-screen flex flex-col gap-8"
   
 >
-          <div className="text-center pt-6 text-4xl font-bold   text-white    bg-black">
+          <div className="text-center text-4xl font-bold   text-white    bg-black">
             Work Experience
           </div>
-          <div className=" flex flex-col gap-16 justify-items-center items-center text-white  h-fit mx-auto ">
+          <div className=" flex flex-col gap-8 justify-items-center items-center text-white  h-fit  ">
           <ActiveProjectCard
                   selectedProject={1}
                   visibility={true}
                   key={1}
                   index={1}
                   title={data[activeCard].title}
-                  description={data[activeCard].description}
+                  description={ data[activeCard].smallDes}
                   image={data[activeCard].image}
                   repoLink={data[activeCard].repoLink}
                   hostedLink={data[activeCard].hostedLink}
                 />
-                <div className='w-full flex overflow-auto whitespace-nowrap gap-4 px-4'>
+                <div className='w-full flex overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center  '>
 
-            {data.map(({ title, description, image, repoLink, hostedLink }, index) => {
+            {data.map(({ title, smallDes, largeDes,image, repoLink, hostedLink }, index) => {
               
               return(
                 <ProjectCard
@@ -58,7 +59,6 @@ const Project = () => {
                   key={index}
                   index={index}
                   title={title}
-                  description={description}
                   image={image}
                   repoLink={repoLink}
                   hostedLink={hostedLink}
@@ -71,7 +71,6 @@ const Project = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

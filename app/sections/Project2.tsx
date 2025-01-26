@@ -18,14 +18,14 @@ const Project2 = () => {
   }, []);
 
   return (
-    <div id="Project" className="w-screen  z-10 transform translate-z-[0px] h-fit bg-black">
+    <div id="Project" className="w-screen  z-10 transform translate-z-[0px] h-fit bg-cover bg-center bg-black" >
      
       <div className=" top-0 w-screen h-screen">
       <div
-  className="w-screen h-screen flex flex-col justify-center gap-4 "
+  className="w-screen h-screen flex flex-col justify-center md:gap-4 lg:gap-12 "
   
 >
-          <div className="text-center pt-6 text-6xl font-bold   text-white    bg-black">
+          <div className="text-center pt-6 text-6xl font-bold   text-white  underline  ">
             Work Experience
           </div>
           <div className=" flex w-full   content-center justify-center  text-white  h-fit  ">
@@ -65,7 +65,7 @@ const Project2 = () => {
                   repoLink={data[activeCard].repoLink}
                   hostedLink={data[activeCard].hostedLink}
                 />
-                <div className=' flex flex-col overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center  '>
+                <div className=' flex flex-col overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center items-center  '>
 
             {data.slice(3,6).map(({ title, description, image, repoLink, hostedLink }, index) => {
               

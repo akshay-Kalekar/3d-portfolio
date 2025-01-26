@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 
 type ProjectCardProps = {
   setActiveCard: (index: number) => void;
-  setHoveredCard: (index: number | null) => void; // Track hovered card
-  hoveredCard: number | null; // Currently hovered card
+  setHoveredCard: (index: number | null) => void;
+  hoveredCard: number | null;
   selectedProject: number;
   title: string;
   description: string;
@@ -21,16 +21,14 @@ const ProjectCard = ({
   visibility,
   index,
   title,
-  description,
   image,
   activeCard,
-
 }: ProjectCardProps) => {
   const [isVisible, setIsVisible] = useState(visibility);
 
   useEffect(() => {
     if (visibility) {
-      setIsVisible(true); // Show the card when visibility is true
+      setIsVisible(true);
     }
   }, [visibility]);
 
@@ -39,36 +37,43 @@ const ProjectCard = ({
   };
 
   const handleMouseEnter = () => {
-    setHoveredCard(index); // Set the hovered card index
+    setHoveredCard(index);
   };
 
   const handleMouseLeave = () => {
-    setHoveredCard(null); // Clear the hovered card
+    setHoveredCard(null);
   };
+
   return (
     isVisible && (
       <a
-      className={`inline-block justify-center  rounded-md  border-2 text-center shadow-lg gap-4 duration-300 h-fit w-24 h-30 transition-all   py-1
-        ${activeCard === index ? 'border-white bg-white text-black' : 'border-gray-900 to-gray-700/90 bg-gradient-to-r from-gray-800 via-gray-900 text-white'}
+        className={`scale-95 inline-block justify-center rounded-md border-2 text-center shadow-lg gap-4 duration-300 h-fit w-24 transition-all py-2
+        ${
+          activeCard === index
+            ? 'border-orange-400 bg-[#292929] text-white shadow-lg scale-100'
+            : 'border-gray-700 bg-[#1E1E1E] text-gray-300 hover:scale-100'
+        }
       `}
-      style={{
-        opacity: hoveredCard !== null && hoveredCard != index ? 0.8 : 1,
-      }}
-      onClick={handleOnClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className=" overflow-hidden  flex justify-center flex-col items-center gap-2">
-        <h2 className="text-xs font-bold  align-middle text-wrap line-clamp-2 text-center w-28 md:w-full">{title}</h2>
-        <Image
-          src={image}
-          alt={title}
-          height={140}
-          width={140}
-          className=" rounded-sm   object-cover w-16 h-16 "
-        />
-      </div>
-    </a>
+        style={{
+          opacity: hoveredCard !== null && hoveredCard !== index ? 0.8 : 1,
+        }}
+        onClick={handleOnClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="overflow-hidden flex justify-center flex-col items-center gap-2">
+          <h2 className="text-xs font-bold text-center line-clamp-2 w-28 md:w-full">
+            {title}
+          </h2>
+          <Image
+            src={image}
+            alt={title}
+            height={140}
+            width={140}
+            className="rounded-sm object-cover w-16 h-16"
+          />
+        </div>
+      </a>
     )
   );
 };

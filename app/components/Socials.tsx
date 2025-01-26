@@ -9,10 +9,10 @@ const Socials = () => {
             className="text-black text-center font-bold  border-black border-t-8  relative cursor-pointer"
            
           >
-            {/* Main text */}
+          
             <div className={`font-bold bg-white/80 px-4 ${showSocials ? 'bg-white/100' : ''} ` }>Connect With Me</div>
 
-            {/* Social links with animation */}
+      
             <div
               className={` top-full left-0 w-full transition-all duration-500 ease-in-out ${
                 showSocials ? "opacity-100 translate-y-2" : "opacity-0 translate-y-0"

@@ -12,9 +12,6 @@ export default function Home() {
   const isTablet = useMediaQuery({ minWidth: 768}); // Between `md` and `lg`
   return (
    <div className="parallax">
-    {/* {
-      isTablet ?  <Hero2/> :<Hero/>
-    } */}
     <Hero/>
    {isTablet ? <Project2/> :<Project/>}
    <Skill/>

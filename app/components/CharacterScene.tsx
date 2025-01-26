@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations, useGLTF } from "@react-three/drei";
-import { memo, Suspense, useEffect, useRef } from "react";
+import { memo, Suspense, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
-// Single model containing both animations
 const MODEL_PATH = "/CharacterWork2/akshayanimation/akshay.glb";
+type AnimationName = "Dance" | "Stand" | "Jump" | "Salute";
 
-const Character = memo(function Character({ animationName = "Stand", ...props }) {
+interface CharacterProps {
+  animationName?: AnimationName; 
+}
+
+const Character = memo(function Character({
+  animationName = "Stand", // Default value
+  ...props
+}: CharacterProps) {
   const group = useRef();
   const { scene, animations } = useGLTF(MODEL_PATH);
   const { actions } = useAnimations(animations, group);
 
-  // Media queries for responsive scaling and positioning
   const isSmallMobile = useMediaQuery({ maxWidth: 400 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
 
   const position = isSmallMobile
-    ? [0, -5, 1]
+    ? [0, -5.0, 1]
     : isMobile
     ? [0, -4, 1]
     : isTablet
@@ -33,12 +39,12 @@ const Character = memo(function Character({ animationName = "Stand", ...props })
     ? 2
     : 2.95;
 
-  // Handle animation playback
+  //  animation playback
   useEffect(() => {
     if (actions && actions[animationName]) {
       const action = actions[animationName];
       action.reset().fadeIn(0.5).play();
-      
+
       return () => {
         action.fadeOut(0.5);
       };
@@ -53,19 +59,47 @@ const Character = memo(function Character({ animationName = "Stand", ...props })
       {...props}
       dispose={null}
     >
+
       <primitive object={scene} />
     </group>
   );
 });
 
 const CharacterScene = () => {
-  const [animationName, setAnimationName] = useState("Stand");
+  const [animationName, setAnimationName] = useState<AnimationName>("Stand");
+
+  // press events for WASD
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key.toLowerCase()) {
+        case "w":
+          setAnimationName("Jump");
+          break;
+        case "a":
+          setAnimationName("Dance");
+          break;
+        case "s":
+          setAnimationName("Stand");
+          break;
+        case "d":
+          setAnimationName("Salute");
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <Canvas
-      camera={{ position: [0, -1, 10], fov: 35 }}
-      className="w-full h-full"
-      onClick={() => setAnimationName(prev => prev === "Stand" ? "Dance" : "Stand")}
+      camera={{ position: [0, -1, 10], fov: 45 }}
+      className="w-full h-screen absolute"
+      onClick={() => { setAnimationName((prev)=> (prev === "Stand" ? "Dance" : "Stand"))}} 
     >
       <ambientLight intensity={2} />
       <directionalLight position={[0, 0, 10]} intensity={1} />

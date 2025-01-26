@@ -1,29 +1,77 @@
-import Socials from "../components/Socials";
-import { AboutMe } from "../components/AboutMe";
 import CharacterScene from "../components/CharacterScene";
-import Image from "next/image";
+import data from "../Data/socials.json"
+import Slider from "../components/Slider";
 
 const Hero = () => {
 
+  const paragraphs = [
+    <div key={0}>
+      I’m <b className="text-orange-400">Akshay Ajay Kalekar</b>, a passionate{" "}
+      <b className="text-orange-400">React Developer</b> with a knack for
+      building pixel-perfect, responsive, and high-performing web applications.
+    </div>,
+    <div key={1}>
+      Since my first year in college, I’ve been immersed in front-end and
+      full-stack development, mastering{" "}
+      <b className="text-orange-400">HTML, CSS, JavaScript, React, Next.js, Tailwind CSS,</b> and more.
+    </div>,
+    <div key={2}>
+      Beyond development, I bring strong <b className="text-orange-400">problem-solving skills</b>, a deep
+      understanding of <b className="text-orange-400">data structures and algorithms</b>, and hands-on
+      experience from <b className="text-orange-400">hackathons and internships</b>.
+    </div>,
+    <div key={3}>
+      I secured a <b className="text-orange-400">Top 10 rank at Innerve 7.0</b> and{" "}
+      <b className="text-orange-400">3rd place in Hack the Crisis 3.0</b>, showcasing my ability to solve
+      real-world problems under pressure.
+    </div>,
+    <div key={4}>
+      I’ve interned at <b className="text-orange-400">GryNow</b>, where I optimized front-end performance,
+      automated database operations, and improved user engagement.
+    </div>,
+    <div key={5}>
+      Whether it's architecting a scalable system, integrating real-time features,
+      or ensuring seamless UX, I have the confidence to bring any web design to life.
+    </div>,
+    <div key={6}>
+      <b className="text-orange-400">Let’s connect and build something impactful!</b>
+    </div>,
+  ];
+
+
+
   return (
-    <div className="h-screen w-screen  mb-[20vh]  bg-cover bg-center  transform translate-z-[-1px] scale-[2] bg-white " >
-      <div className=" inset-0 w-full pt-8 lg:px-52">
-        <div className="text-5xl sm:text-4xl  lg:text-4xl w-full text-center italic font-bold text-black p-2">Akshay Ajay Kalekar</div>
-        <div className="flex  justify-between top-0  text-white font-bold text-center w-full ">
-          <div className="flex gap-2 w-full justify-between lg:justify-center px-10 pt-4">
-            <div className="border-2 rounded-2xl px-2 bg-black text-white hover:bg-white hover:border-black hover:text-black">Resume</div>
-            <div className="border-2 rounded-2xl px-2 bg-black text-white">LinkedIn</div>
-            <div className="border-2 rounded-2xl px-2 bg-black text-white">Github</div>
+    <div className="h-screen w-screen    bg-cover bg-center  transform translate-z-[-1px] scale-[2] bg-black" >
+      <div className=" flex flex-col w-full h-screen pt-8 lg:px-52">
+        <div className="h-1/5">
+          <div className="text-5xl sm:text-4xl  lg:text-4xl w-full text-center italic font-bold text-white p-2 underline">Akshay Ajay Kalekar</div>
+          <div className="flex  justify-between top-0  text-white font-bold text-center w-full ">
+            <div className="flex gap-2 w-full justify-between lg:justify-center px-10 pt-4">
+
+              {
+                data.map((item, index) => (
+                  <a key={index} href={item.link} target="_blank"
+                    className=" border-l-2 border-white relative inline-block  px-4 py-2 bg-black text-white overflow-hidden group transition-all duration-300 hover:text-black hover:underline"
+                  >
+                    <span className="relative z-10 ">{item.title}</span>
+                    <span className="absolute inset-0 bg-white border-2   scale-x-0 origin-left transform transition-transform duration-300 group-hover:scale-x-105 z-0 " />
+                  </a>
+                ))
+              }
+            </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 justify-between w-full h-[50vh] gap-14 ">
-          <div className="  text-[3rem]  sm:text-[3.75rem] leading-[3rem] ] sm:leading-[3rem] text-black font-bold  text-left py-4 w-1/2 pl-4">Let's Build <br className="hidden lg:block" /> Impactful Website</div>
+
+        <div className="grid grid-cols-2 justify-between w-full h-3/5 md:gap-6 lg:gap-8 py-8 pl-4 ">
+          <div className="  text-[3rem]  sm:text-[3.75rem] leading-[3rem] ] sm:leading-[3rem] text-white font-bold  text-left py-4 w-1/2 pl-4">Let's Build <br className="hidden lg:block" /><span className=" text-orange-400">Impactful</span>  Website</div>
           <div className="flex justify-center items-center  row-span-2 ">
             <CharacterScene />
           </div>
-          <div className=" text-lg sm:text-xl w-[30ch] lg:w-[50ch] text-white text-left mx-4 px-4 sm:p-4 sm:w-[80ch] rounded-lg bg-black/40  italic ">
-            <b>Proficient React Developer </b> experience in creating responsive and dynamic web applications. <br />Skilled in backend technologies like Express.js and Python, with a strong understanding of full-stack development.</div>
+        <Slider paragraphs={paragraphs} />
+
         </div>
+      </div>
+      <div>
       </div>
     </div>
   );

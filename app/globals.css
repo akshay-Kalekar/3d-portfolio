@@ -233,15 +233,6 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-/* Improvements Made: 
-1. **Structured CSS:** Grouped styles logically (colors, global styles, animations, utilities).
-2. **Clean Keyframes:** Reduced redundancy and ensured animation durations are consistent.
-3. **Flexibility:** Added `position: relative` to `.parallax` for better layering in specific cases.
-4. **Performance:** Shortened animation durations where needed to improve responsiveness.
-5. **Scrollbar Compatibility:** Retained universal hiding for cross-browser compatibility.
-6. **Readability:** Proper spacing and naming conventions.
-*/
-
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-hidden::-webkit-scrollbar {
@@ -252,4 +243,16 @@ body {
 .scrollbar-hidden {
 -ms-overflow-style: none;  /* IE and Edge */
 scrollbar-width: none;  /* Firefox */
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 3s forwards;
 }

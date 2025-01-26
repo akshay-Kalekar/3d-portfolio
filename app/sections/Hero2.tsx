@@ -24,7 +24,7 @@ const Hero2 = () => {
 
   return (
     <div className="h-screen w-screen flex bg-black text-white font-sans">
-      {/* Left Panel */}
+
       <div className="w-1/3 bg-gray-900 flex flex-col justify-between px-8 py-10 shadow-lg">
         <div>
           <h1 className="text-4xl font-bold mb-4 border-b-2 border-gray-700 pb-2">
@@ -66,12 +66,12 @@ const Hero2 = () => {
         </div>
       </div>
 
-      {/* Middle Panel */}
+  
       <div className="w-1/3 flex items-center justify-center bg-black">
         <CharacterScene />
       </div>
 
-      {/* Right Panel */}
+  
       <div className="w-1/3 bg-gray-900 flex flex-col justify-between px-8 py-10 shadow-lg">
         <div>
           <div className="flex justify-center gap-6 text-gray-400 mb-10">

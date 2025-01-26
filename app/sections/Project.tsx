@@ -22,7 +22,7 @@ const Project = () => {
 
   const isTablet = useMediaQuery({ minWidth: 768}); // Between `md` and `lg`
   return (
-    <div id="Project" className="w-screen   z-10 transform translate-z-[0px] h-fit bg-black p-4">
+    <div id="Project" className="w-screen   z-10 transform translate-z-[0px] h-fit  py-4 bg-black">
      
    
       <div
@@ -46,12 +46,12 @@ const Project = () => {
                 />
                 <div className='w-full flex overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center  '>
 
-            {data.map(({ title, smallDes, largeDes,image, repoLink, hostedLink }, index) => {
+            {data.map(({ title,image, repoLink, hostedLink }, index) => {
               
               return(
                 <ProjectCard
-                setHoveredCard={setHoveredCard} // Pass the state updater for hovered card
-                hoveredCard={hoveredCard} // Track currently hovered card
+                setHoveredCard={setHoveredCard} 
+                hoveredCard={hoveredCard} 
                 
                 setActiveCard={setActiveCard}
                 selectedProject={1}

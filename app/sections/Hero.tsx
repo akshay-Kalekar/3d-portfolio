@@ -1,9 +1,43 @@
 import CharacterScene from "../components/CharacterScene";
 import data from "../Data/socials.json"
 import Slider from "../components/Slider";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+  
+  const heroRef = useRef(null);
+  const [scrollSpeed, setScrollSpeed] = useState(2); // Default speed
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setScrollSpeed(2); // Increase scroll speed when in view
+        } else {
+          setScrollSpeed(2); // Reset scroll speed when out of view
+        }
+      },
+      { threshold: 1 } // Adjust threshold as needed
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollSpeed > 1) {
+        window.scrollBy(2, scrollSpeed); // Increase scroll movement
+      }
+    };
+
+    const interval = setInterval(handleScroll, 10); // Adjust timing for smoothness
+
+    return () => clearInterval(interval);
+  }, [scrollSpeed]);
   const paragraphs = [
     <div key={0}>
       I’m <b className="text-orange-400">Akshay Ajay Kalekar</b>, a passionate{" "}
@@ -41,12 +75,12 @@ const Hero = () => {
 
 
   return (
-    <div className="h-screen w-screen    bg-cover bg-center  transform translate-z-[-1px] scale-[2] bg-black" >
+    <div ref={heroRef} className="h-screen w-screen bg-cover bg-center  transform translate-z-[-3px] scale-[4] bg-black mb-[200vh]" >
       <div className=" flex flex-col w-full h-screen pt-8 lg:px-52">
         <div className="h-1/5">
-          <div className="text-5xl sm:text-4xl  lg:text-4xl w-full text-center italic font-bold text-white p-2 underline">Akshay Ajay Kalekar</div>
+          <div className="text-2xl sm:text-4xl  lg:text-4xl w-full text-center italic font-bold text-white p-2 underline">Akshay Ajay Kalekar</div>
           <div className="flex  justify-between top-0  text-white font-bold text-center w-full ">
-            <div className="flex gap-2 w-full justify-between lg:justify-center px-10 pt-4">
+            <div className="flex w-full justify-between flex-wrap lg:justify-center px-10 pt-4 text-xs md:text-base">
 
               {
                 data.map((item, index) => (

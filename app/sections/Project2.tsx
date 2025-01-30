@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import { DropLines } from '../AnimatedSvg/DropLines';
 import data2 from '../Data/project.json';
 import ProjectCard2 from '../components/ProjectCard2';
@@ -16,9 +16,42 @@ const Project2 = () => {
     });
     setVisibility(initialMap);
   }, []);
+  
+  const projectRef = useRef(null);
+  const [scrollSpeed, setScrollSpeed] = useState(2); // Default speed
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setScrollSpeed(2); // Increase scroll speed when in view
+        } else {
+          setScrollSpeed(2); // Reset scroll speed when out of view
+        }
+      },
+      { threshold: 1 } // Adjust threshold as needed
+    );
+
+    if (projectRef.current) observer.observe(projectRef.current);
+
+    return () => {
+      if (projectRef.current) observer.unobserve(projectRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollSpeed > 1) {
+        window.scrollBy(2, scrollSpeed); // Increase scroll movement
+      }
+    };
+
+    const interval = setInterval(handleScroll, 10); // Adjust timing for smoothness
+
+    return () => clearInterval(interval);
+  }, [scrollSpeed]);
   return (
-    <div id="Project" className="w-screen  z-10 transform translate-z-[0px] h-fit bg-cover bg-center bg-black" >
+    <div ref={projectRef} id="Project" className="w-screen h-screen transform translate-z-[-2px] scale-[3] mb-[100vh] bg-cover bg-center bg-black" >
      
       <div className=" top-0 w-screen h-screen">
       <div

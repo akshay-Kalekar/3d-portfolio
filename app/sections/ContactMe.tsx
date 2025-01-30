@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ContactMe = () => {
+   
+   const contactRef = useRef(null);
+   const [scrollSpeed, setScrollSpeed] = useState(0.5); // Default speed
+ 
+   useEffect(() => {
+     const observer = new IntersectionObserver(
+       ([entry]) => {
+         if (entry.isIntersecting) {
+           setScrollSpeed(0.5); 
+         } else {
+           setScrollSpeed(0.5); 
+         }
+       },
+       { threshold: 0.4 } 
+     );
+ 
+     if (contactRef.current) observer.observe(contactRef.current);
+ 
+     return () => {
+       if (contactRef.current) observer.unobserve(contactRef.current);
+     };
+   }, []);
+ 
+   useEffect(() => {
+     const handleScroll = () => {
+       if (scrollSpeed > 1) {
+         window.scrollBy(0.5, scrollSpeed); // Increase scroll movement
+       }
+     };
+ 
+     const interval = setInterval(handleScroll, 2); // Adjust timing for smoothness
+ 
+     return () => clearInterval(interval);
+   }, [scrollSpeed]);
   return (
-    <div className="bg-black min-h-screen flex items-center justify-center px-4 py-12">
+    <div ref={contactRef} className="bg-black min-h-screen flex items-center justify-center px-4 py-12 transform translate-z-[0px] ">
       <div className="max-w-4xl w-full">
 
         <div className="text-center mb-10">

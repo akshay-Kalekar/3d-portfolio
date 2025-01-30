@@ -12,7 +12,7 @@ interface CharacterProps {
 }
 
 const Character = memo(function Character({
-  animationName = "Stand", // Default value
+  animationName = "Stand", 
   ...props
 }: CharacterProps) {
   const group = useRef();
@@ -24,7 +24,7 @@ const Character = memo(function Character({
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
 
   const position = isSmallMobile
-    ? [0, -5.0, 1]
+    ? [0, -6.0, 1]
     : isMobile
     ? [0, -4, 1]
     : isTablet
@@ -32,7 +32,7 @@ const Character = memo(function Character({
     : [0, -5.7, 1];
 
   const scale = isSmallMobile
-    ? 2.5
+    ? 3
     : isMobile
     ? 1.95
     : isTablet

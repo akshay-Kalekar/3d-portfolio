@@ -10,6 +10,7 @@ export default function Home() {
   const isSmallMobile = useMediaQuery({ maxWidth: 450 }); // `md` breakpoint
   const isMobile = useMediaQuery({ maxWidth: 767 }); // `md` breakpoint
   const isTablet = useMediaQuery({ minWidth: 768}); // Between `md` and `lg`
+  
   return (
    <div className="parallax">
     <Hero/>

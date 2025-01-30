@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import skill from '@/app/Data/skill.json';
 import { DropLines } from '../AnimatedSvg/DropLines';
 import { url } from 'inspector';
@@ -20,10 +20,43 @@ const Skill = () => {
       }));
     }, 1000); // Duration of the animation in milliseconds
   };
-
+    
+    const skillRef = useRef(null);
+    const [scrollSpeed, setScrollSpeed] = useState(2); // Default speed
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setScrollSpeed(2); // Increase scroll speed when in view
+          } else {
+            setScrollSpeed(2); // Reset scroll speed when out of view
+          }
+        },
+        { threshold: 1 } // Adjust threshold as needed
+      );
+  
+      if (skillRef.current) observer.observe(skillRef.current);
+  
+      return () => {
+        if (skillRef.current) observer.unobserve(skillRef.current);
+      };
+    }, []);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        if (scrollSpeed > 1) {
+          window.scrollBy(2, scrollSpeed); // Increase scroll movement
+        }
+      };
+  
+      const interval = setInterval(handleScroll, 10); // Adjust timing for smoothness
+  
+      return () => clearInterval(interval);
+    }, [scrollSpeed]);
   return (
     <>
-      <div className="h-screen w-screen bg-black text-white flex justify-center z-10  ">
+      <div ref={skillRef} className="h-screen w-screen bg-black text-white flex justify-center  transform translate-z-[-1px] scale-[2] ">
         <div className=" h-screen w-screen">
           <div className="flex flex-col items-center justify-center p-4 h-screen w-screen">
             {/* 4 images */}

@@ -19,11 +19,11 @@ const Hero = () => {
       },
       { threshold: 1 } // Adjust threshold as needed
     );
-
-    if (heroRef.current) observer.observe(heroRef.current);
+    const currentElement = heroRef.current;
+    if (currentElement) observer.observe(currentElement);
 
     return () => {
-      if (heroRef.current) observer.unobserve(heroRef.current);
+      if (currentElement) observer.unobserve(currentElement);
     };
   }, []);
 
@@ -64,7 +64,7 @@ const Hero = () => {
       automated database operations, and improved user engagement.
     </div>,
     <div key={5}>
-      Whether it's architecting a scalable system, integrating real-time features,
+      {`Whether it's architecting a scalable system, integrating real-time features`},
       or ensuring seamless UX, I have the confidence to bring any web design to life.
     </div>,
     <div key={6}>
@@ -97,7 +97,7 @@ const Hero = () => {
         </div>
 
         <div className="grid grid-cols-2 justify-between w-full h-3/5 md:gap-6 lg:gap-8 py-8 pl-4 ">
-          <div className="  text-[3rem]  sm:text-[3.75rem] leading-[3rem] ] sm:leading-[3rem] text-white font-bold  text-left py-4 w-1/2 pl-4">Let's Build <br className="hidden lg:block" /><span className=" text-orange-400">Impactful</span>  Website</div>
+          <div className="  text-[3rem]  sm:text-[3.75rem] leading-[3rem] ] sm:leading-[3rem] text-white font-bold  text-left py-4 w-1/2 pl-4">{`Let's Build`} <br className="hidden lg:block" /><span className=" text-orange-400">Impactful</span>  Website</div>
           <div className="flex justify-center items-center  row-span-2 ">
             <CharacterScene />
           </div>

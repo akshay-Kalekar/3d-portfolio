@@ -20,11 +20,7 @@ const ActiveProjectCard = ({
   const [currentTitle, setCurrentTitle] = useState(title);
   const [currentDescription, setCurrentDescription] = useState(description);
   const [currentImage, setCurrentImage] = useState(image);
-  const [loading, setLoading] = useState(true);
 
-  const handleImageLoad = () => {
-    setLoading(false); // Image loaded
-  };
   
   useEffect(() => {
     // Trigger exit animation
@@ -51,10 +47,9 @@ const ActiveProjectCard = ({
           alt={currentTitle}
           height={400}
           width={400}
-          priority //image preloads
+          priority 
 
           className=" p-4 rounded-md shadow-md transform transition-transform duration-500 mx-auto h-52 w-52 md:w-full md:h-full"
-          onLoad={handleImageLoad}
         />
       <p className="text-gray-300 text-left my-2 text-base">{currentDescription}</p>
       <div className="flex justify-between text-sm mt-4">

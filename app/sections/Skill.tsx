@@ -1,28 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import skill from '@/app/Data/skill.json';
-import { DropLines } from '../AnimatedSvg/DropLines';
-import { url } from 'inspector';
+
 
 const Skill = () => {
-  const [animatingIndexes, setAnimatingIndexes] = useState({}); // Object to track each icon's animation state
+  const [animatingIndexes, setAnimatingIndexes] = useState([false,false,false,false,false,false,false,false,false,false,false,false,false,false]); // Object to track each icon's animation state
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index:number) => {
     setAnimatingIndexes((prev) => ({
       ...prev,
-      [index]: true, // Set animation active for this index
+      [index]: true, 
     }));
 
-    // Remove animation class after animation completes
+   
     setTimeout(() => {
       setAnimatingIndexes((prev) => ({
         ...prev,
-        [index]: false, // Reset animation state for this index
+        [index]: false,
       }));
-    }, 1000); // Duration of the animation in milliseconds
+    }, 1000); 
   };
     
     const skillRef = useRef(null);
-    const [scrollSpeed, setScrollSpeed] = useState(2); // Default speed
+    const [scrollSpeed, setScrollSpeed] = useState(2); 
   
     useEffect(() => {
       const observer = new IntersectionObserver(
@@ -35,22 +34,22 @@ const Skill = () => {
         },
         { threshold: 1 } // Adjust threshold as needed
       );
-  
-      if (skillRef.current) observer.observe(skillRef.current);
+      const currentElement = skillRef.current;
+      if (currentElement) observer.observe(currentElement);
   
       return () => {
-        if (skillRef.current) observer.unobserve(skillRef.current);
+        if (currentElement) observer.unobserve(currentElement);
       };
     }, []);
   
     useEffect(() => {
       const handleScroll = () => {
         if (scrollSpeed > 1) {
-          window.scrollBy(2, scrollSpeed); // Increase scroll movement
+          window.scrollBy(2, scrollSpeed); 
         }
       };
   
-      const interval = setInterval(handleScroll, 10); // Adjust timing for smoothness
+      const interval = setInterval(handleScroll, 10); 
   
       return () => clearInterval(interval);
     }, [scrollSpeed]);

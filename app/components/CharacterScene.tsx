@@ -23,7 +23,7 @@ const Character = memo(function Character({
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
 
-  const position = isSmallMobile
+  const position:[number, number, number] = isSmallMobile
     ? [0, -6.0, 1]
     : isMobile
     ? [0, -4, 1]

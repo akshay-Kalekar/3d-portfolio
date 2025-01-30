@@ -7,7 +7,6 @@ type ProjectCard2Props = {
   hoveredCard: number | null; // Currently hovered card
   selectedProject: number;
   title: string;
-  description: string;
   image: string;
   visibility: boolean;
   index: number;
@@ -21,7 +20,6 @@ const ProjectCard2 = ({
   visibility,
   index,
   title,
-  description,
   image,
   activeCard,
 }: ProjectCard2Props) => {

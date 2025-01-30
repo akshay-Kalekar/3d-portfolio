@@ -20,11 +20,7 @@ const ActiveProjectCard = ({
   const [currentTitle, setCurrentTitle] = useState(title);
   const [currentDescription, setCurrentDescription] = useState(description);
   const [currentImage, setCurrentImage] = useState(image);
-  const [loading, setLoading] = useState(true);
 
-  const handleImageLoad = () => {
-    setLoading(false);
-  };
 
   useEffect(() => {
     setIsExiting(true);
@@ -52,7 +48,6 @@ const ActiveProjectCard = ({
         width={400}
         priority
         className="rounded-md shadow-md transition-transform duration-500 mx-auto h-52 w-52 md:w-full md:h-full"
-        onLoadingComplete={handleImageLoad}
       />
       <p className="text-gray-300 text-left my-2 px-4 text-sm min-h-[3ch] md:min-h-[14ch]">
         {currentDescription}

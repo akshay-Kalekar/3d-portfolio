@@ -7,7 +7,6 @@ type ProjectCardProps = {
   hoveredCard: number | null;
   selectedProject: number;
   title: string;
-  description: string;
   image: string;
   visibility: boolean;
   index: number;

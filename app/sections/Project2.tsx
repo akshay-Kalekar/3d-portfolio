@@ -1,12 +1,10 @@
 import React, { useState,useEffect, useRef } from 'react';
-import { DropLines } from '../AnimatedSvg/DropLines';
-import data2 from '../Data/project.json';
+import data from '../Data/project.json';
 import ProjectCard2 from '../components/ProjectCard2';
 import ActiveProjectCard from '../components/ActiveProjectCard';
 
 const Project2 = () => {
  const [visibility, setVisibility] = useState(new Map());
-  const [data ,setData] = useState(data2)
   const [activeCard ,setActiveCard] = useState(0)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   useEffect(() => {
@@ -31,11 +29,11 @@ const Project2 = () => {
       },
       { threshold: 1 } // Adjust threshold as needed
     );
-
-    if (projectRef.current) observer.observe(projectRef.current);
+    const currentElement = projectRef.current;
+    if (currentElement) observer.observe(currentElement);
 
     return () => {
-      if (projectRef.current) observer.unobserve(projectRef.current);
+      if (currentElement) observer.unobserve(currentElement);
     };
   }, []);
 
@@ -52,7 +50,6 @@ const Project2 = () => {
   }, [scrollSpeed]);
   return (
     <div ref={projectRef} id="Project" className="w-screen h-screen transform translate-z-[-2px] scale-[3] mb-[100vh] bg-cover bg-center bg-black" >
-     
       <div className=" top-0 w-screen h-screen">
       <div
   className="w-screen h-screen flex flex-col justify-center md:gap-4 lg:gap-12 "
@@ -64,7 +61,7 @@ const Project2 = () => {
           <div className=" flex w-full   content-center justify-center  text-white  h-fit  ">
           <div className='flex  flex-col overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center  '>
 
-{data.slice(0,3).map(({ title, description, image, repoLink, hostedLink }, index) => {
+{data.slice(0,3).map(({ title, image }, index) => {
   
   return(
     <ProjectCard2
@@ -77,10 +74,8 @@ const Project2 = () => {
       key={index}
       index={index}
       title={title}
-      description={description}
       image={image}
-      repoLink={repoLink}
-      hostedLink={hostedLink}
+      
       activeCard={activeCard}
       />
     ) 
@@ -88,10 +83,8 @@ const Project2 = () => {
   
   </div>
           <ActiveProjectCard
-                  selectedProject={1}
-                  visibility={true}
+                  
                   key={1}
-                  index={1}
                   title={data[activeCard].title}
                   description={data[activeCard].largeDes}
                   image={data[activeCard].image}
@@ -100,7 +93,7 @@ const Project2 = () => {
                 />
                 <div className=' flex flex-col overflow-auto scrollbar-hidden whitespace-nowrap gap-4 px-16 scroll-smooth md:justify-center items-center  '>
 
-            {data.slice(3,6).map(({ title, description, image, repoLink, hostedLink }, index) => {
+            {data.slice(3,6).map(({ title,  image}, index) => {
               
               return(
                 <ProjectCard2
@@ -113,10 +106,7 @@ const Project2 = () => {
                   key={index +3}
                   index={index +3}
                   title={title}
-                  description={description}
                   image={image}
-                  repoLink={repoLink}
-                  hostedLink={hostedLink}
                   activeCard={activeCard}
                   />
                 ) 

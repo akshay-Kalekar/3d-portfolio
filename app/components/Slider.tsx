@@ -1,21 +1,18 @@
-import { useState, useEffect } from "react";
-
-export default function Slider({ paragraphs }) {
+import { useState } from "react";
+interface SliderProps{
+  paragraphs : JSX.Element[] ,
+}
+export default function Slider ({ paragraphs }:SliderProps ) {
   const [index, setIndex] = useState(0);
   const totalSlides = paragraphs.length;
 
   let touchStartX = 0;
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowSwipeHint(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleSwipeStart = (e) => {
+  const handleSwipeStart = (e:React.TouchEvent<HTMLDivElement>) => {
     touchStartX = e.touches[0].clientX;
   };
 
-  const handleSwipeEnd = (e) => {
+  const handleSwipeEnd = (e:React.TouchEvent<HTMLDivElement>) => {
     const touchEndX = e.changedTouches[0].clientX;
     if (touchStartX - touchEndX > 50) {
       handleNext();
@@ -34,9 +31,8 @@ export default function Slider({ paragraphs }) {
     );
   };
 
-  const handleDotClick = (dotIndex) => {
+  const handleDotClick = (dotIndex:number) => {
     setIndex(dotIndex);
-    setSwipeDirection(dotIndex > index ? "left" : "right");
   };
 
   return (
